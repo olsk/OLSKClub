@@ -1,0 +1,8 @@
+{
+  "name": "OLSKMembership",
+  "main": "main.svelte",
+  "devDependencies": {
+    "normalize.css": "latest",
+    "OLSKDecor": "olsk/OLSKDecor"
+  }
+}
