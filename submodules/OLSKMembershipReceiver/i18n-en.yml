@@ -1,1 +1,2 @@
 OLSKMembershipReceiverHeadingText: "Enter the code from your <a href='%@' target='_blank'>membership page</a>:"
+OLSKMembershipReceiverMatchErrorText: Membership not found, maybe try again?

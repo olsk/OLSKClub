@@ -46,6 +46,10 @@ const mod = {
 			});
 
 			const result = await response.json();
+
+			if (result.error === 'RCAErrorNoMatch') {
+				throw new Error(OLSKLocalized('OLSKMembershipReceiverMatchErrorText'));
+			}
 		} catch (error) {
 			mod._ValueError = error.message;
 		}

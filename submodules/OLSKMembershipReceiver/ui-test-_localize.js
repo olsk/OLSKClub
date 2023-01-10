@@ -33,18 +33,44 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(OLSKMembershipReceiverSubmitButton, uLocalized('OLSKWordingSubmitText'));
 		});
 
-		context.skip('Error', function () {
+		context.skip('OLSKMembershipReceiverErrorAlert', function () {
 			
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
 					OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/Error',
 					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
 					OLSKMembershipReceiverEmail: uEmail(),
 				});
 			});
 
-			it('shows OLSKMembershipReceiverErrorAlert', function () {
+			before(function () {
+				return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+			});
+
+			it('sets text', function () {
 				browser.assert.text(OLSKMembershipReceiverErrorAlert, 'JSON.parse: unexpected character at line 1 column 1 of the JSON data');
+			});
+
+		});
+
+		context.skip('MatchError', function () {
+			
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
+					OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/MatchError',
+					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+					OLSKMembershipReceiverEmail: uEmail(),
+				});
+			});
+
+			before(function () {
+				return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+			});
+
+			it('shows OLSKMembershipReceiverErrorAlert', function () {
+				browser.assert.text(OLSKMembershipReceiverErrorAlert, uLocalized('OLSKMembershipReceiverMatchErrorText'));
 			});
 
 		});

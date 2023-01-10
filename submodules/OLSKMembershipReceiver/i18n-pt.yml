@@ -1,1 +1,2 @@
 OLSKMembershipReceiverHeadingText: "Digite o código de sua <a href='%@' target='_blank'>página de afiliação</a>:"
+OLSKMembershipReceiverMatchErrorText: Afiliação não encontrado, talvez tenta de novo?
