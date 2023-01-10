@@ -2,7 +2,9 @@
   "name": "OLSKMembership",
   "main": "main.svelte",
   "dependencies": {
-    "OLSKModalView": "olsk/OLSKModalView"
+    "OLSKWording": "olsk/OLSKWording",
+    "OLSKModalView": "olsk/OLSKModalView",
+    "OLSKLink": "olsk/OLSKLink"
   },
   "devDependencies": {
     "normalize.css": "latest",
