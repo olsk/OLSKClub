@@ -78,6 +78,28 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 		});
+
+		context('MatchSuccess', function () {
+			
+			before(function() {
+				return browser.OLSKVisit(kDefaultRoute, {
+					OLSKRoutingLanguage,
+					OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/MatchSuccess',
+					OLSKMembershipReceiverEmail: uEmail(),
+					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+					DEBUG_OLSKMembershipReceiverSuccess: true,
+				});
+			});
+
+			before(function () {
+				// return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+			});
+
+			it('shows OLSKMembershipReceiverSuccessAlert', function () {
+				browser.assert.text(OLSKMembershipReceiverSuccessAlert, uLocalized('OLSKMembershipReceiverMatchSuccessText'));
+			});
+
+		});
 	
 	});
 

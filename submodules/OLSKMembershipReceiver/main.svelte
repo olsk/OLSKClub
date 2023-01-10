@@ -4,6 +4,7 @@ export let OLSKMembershipReceiverEmail;
 export let OLSKMembershipReceiverDispatchSubmit;
 export let DEBUG_OLSKMembershipReceiverPIN = '';
 export let DEBUG_OLSKMembershipReceiverError = '';
+export let DEBUG_OLSKMembershipReceiverSuccess = false;
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSKFormatted } from 'OLSKString';
@@ -16,6 +17,7 @@ const mod = {
 	_ValueCode: DEBUG_OLSKMembershipReceiverPIN || '',
 	_ValueEmail: OLSKMembershipReceiverEmail,
 	_ValueError: DEBUG_OLSKMembershipReceiverError,
+	_ValueSuccess: DEBUG_OLSKMembershipReceiverSuccess,
 
 	// DATA
 
@@ -52,6 +54,10 @@ const mod = {
 			if (result.error === 'RCAErrorNoMatch') {
 				throw new Error(OLSKLocalized('OLSKMembershipReceiverMatchErrorText'));
 			}
+
+			if (result.OLSK_FUND_GRANT_V1) {
+				mod._ValueSuccess = true;
+			}
 		} catch (error) {
 			mod._ValueError = error.message;
 		}
@@ -79,6 +85,12 @@ const mod = {
 {#if mod._ValueError }
 
 <p class="OLSKMembershipReceiverErrorAlert">{ mod._ValueError }</p>
+	
+{/if}
+
+{#if mod._ValueSuccess }
+
+<p class="OLSKMembershipReceiverSuccessAlert">{ OLSKLocalized('OLSKMembershipReceiverMatchSuccessText') }</p>
 	
 {/if}
 

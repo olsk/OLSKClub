@@ -7,6 +7,7 @@ Object.entries({
 	OLSKMembershipReceiverEmailField: '.OLSKMembershipReceiverEmailField',
 	OLSKMembershipReceiverSubmitButton: '.OLSKMembershipReceiverSubmitButton',
 	OLSKMembershipReceiverErrorAlert: '.OLSKMembershipReceiverErrorAlert',
+	OLSKMembershipReceiverSuccessAlert: '.OLSKMembershipReceiverSuccessAlert',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -41,6 +42,10 @@ describe('OLSKMembershipReceiver_Access', function () {
 		browser.assert.elements(OLSKMembershipReceiverErrorAlert, 0);
 	});
 
+	it('hides OLSKMembershipReceiverSuccessAlert', function () {
+		browser.assert.elements(OLSKMembershipReceiverSuccessAlert, 0);
+	});
+
 	context('Error', function () {
 		
 		before(function() {
@@ -58,6 +63,27 @@ describe('OLSKMembershipReceiver_Access', function () {
 
 		it('shows OLSKMembershipReceiverErrorAlert', function () {
 			browser.assert.elements(OLSKMembershipReceiverErrorAlert, 1);
+		});
+
+	});
+
+	context('MatchSuccess', function () {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/MatchSuccess',
+				OLSKMembershipReceiverEmail: uEmail(),
+				DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+				DEBUG_OLSKMembershipReceiverSuccess: true,
+			});
+		});
+
+		before(function () {
+			// return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+		});
+
+		it('shows OLSKMembershipReceiverSuccessAlert', function () {
+			browser.assert.elements(OLSKMembershipReceiverSuccessAlert, 1);
 		});
 
 	});

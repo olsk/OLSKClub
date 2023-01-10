@@ -18,6 +18,15 @@ const mod = {
 					error: 'RCAErrorNoMatch',
 				});
 			},
+		}, {
+			OLSKRoutePath: '/stub/OLSKMembershipReceiver/MatchSuccess',
+			OLSKRouteMethod: 'post',
+			OLSKRouteSignature: 'OLSKMembershipReceiverMatchErrorStubRoute',
+			OLSKRouteFunction (req, res, next) {
+				return res.json({
+					OLSK_FUND_GRANT_V1: Math.random().toString(),
+				});
+			},
 		}];
 	},
 
