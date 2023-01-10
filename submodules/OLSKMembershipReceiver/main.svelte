@@ -2,6 +2,7 @@
 export let OLSKMembershipReceiverPage;
 export let OLSKMembershipReceiverEmail;
 export let OLSKMembershipReceiverDispatchSubmit;
+export let DEBUG_OLSKMembershipReceiverPIN = '';
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSKFormatted } from 'OLSKString';
@@ -11,7 +12,7 @@ const mod = {
 
 	// VALUE
 
-	_ValueCode: '',
+	_ValueCode: DEBUG_OLSKMembershipReceiverPIN || '',
 	_ValueEmail: OLSKMembershipReceiverEmail,
 
 	// DATA
@@ -26,13 +27,28 @@ const mod = {
 
 	// INTERFACE
 
-	InterfaceFormDidSubmit () {
+	async InterfaceFormDidSubmit () {
 		event.preventDefault();
 
 		OLSKMembershipReceiverDispatchSubmit({
 			pin: mod._ValueCode,
 			email: mod._ValueEmail,
 		});
+
+		try {
+			const response = await window.fetch(OLSKMembershipReceiverPage, {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify({
+					pin: mod._ValueCode,
+					email: mod._ValueEmail,
+				}),
+			});
+
+			const result = await response.json();
+		} catch (error) {
+			mod._ValueError = error.message;
+		}
 	},
 
 };
@@ -53,6 +69,12 @@ const mod = {
 <p>
 	<button class="OLSKMembershipReceiverSubmitButton" disabled={ !mod.DataValid() }>{ OLSKLocalized('OLSKWordingSubmitText') }</button>
 </p>
+
+{#if mod._ValueError }
+
+<p class="OLSKMembershipReceiverErrorAlert">{ mod._ValueError }</p>
+	
+{/if}
 
 </form>
 

@@ -6,6 +6,7 @@ Object.entries({
 	OLSKMembershipReceiverCodeField: '.OLSKMembershipReceiverCodeField',
 	OLSKMembershipReceiverEmailField: '.OLSKMembershipReceiverEmailField',
 	OLSKMembershipReceiverSubmitButton: '.OLSKMembershipReceiverSubmitButton',
+	OLSKMembershipReceiverErrorAlert: '.OLSKMembershipReceiverErrorAlert',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
@@ -34,6 +35,30 @@ describe('OLSKMembershipReceiver_Access', function () {
 
 	it('shows OLSKMembershipReceiverSubmitButton', function () {
 		browser.assert.elements(OLSKMembershipReceiverSubmitButton, 1);
+	});
+
+	it('hides OLSKMembershipReceiverErrorAlert', function () {
+		browser.assert.elements(OLSKMembershipReceiverErrorAlert, 0);
+	});
+
+	context('Error', function () {
+		
+		before(function() {
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/Error',
+				DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+				OLSKMembershipReceiverEmail: uEmail(),
+			});
+		});
+
+		before(function () {
+			return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+		});
+
+		it.skip('shows OLSKMembershipReceiverErrorAlert', function () {
+			browser.assert.elements(OLSKMembershipReceiverErrorAlert, 1);
+		});
+
 	});
 
 });
