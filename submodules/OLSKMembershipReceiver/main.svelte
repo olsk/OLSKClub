@@ -1,7 +1,7 @@
 <script>
 export let OLSKMembershipReceiverPage;
 export let OLSKMembershipReceiverEmail;
-export let OLSKMembershipReceiverDispatchSubmit;
+export let OLSKMembershipReceiverDispatchGrant;
 export let DEBUG_OLSKMembershipReceiverPIN = '';
 export let DEBUG_OLSKMembershipReceiverError = '';
 export let DEBUG_OLSKMembershipReceiverSuccess = false;
@@ -34,11 +34,6 @@ const mod = {
 	async InterfaceFormDidSubmit () {
 		event.preventDefault();
 
-		OLSKMembershipReceiverDispatchSubmit({
-			pin: mod._ValueCode,
-			email: mod._ValueEmail,
-		});
-
 		try {
 			const response = await window.fetch(OLSKMembershipReceiverPage, {
 				method: 'POST',
@@ -55,9 +50,13 @@ const mod = {
 				throw new Error(OLSKLocalized('OLSKMembershipReceiverMatchErrorText'));
 			}
 
-			if (result.OLSK_FUND_GRANT_V1) {
-				mod._ValueSuccess = true;
+			if (!result.OLSK_FUND_GRANT_V1) {
+				throw new Error('MissingGrant');
 			}
+
+			mod._ValueSuccess = true;
+
+			OLSKMembershipReceiverDispatchGrant(result);
 		} catch (error) {
 			mod._ValueError = error.message;
 		}

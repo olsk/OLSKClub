@@ -5,9 +5,9 @@ const OLSKMembershipReceiver = new RollupStart({
 	props: Object.assign({
 		OLSKMembershipReceiverPage: Math.random().toString(),
 		OLSKMembershipReceiverEmail: Math.random().toString(),
-		OLSKMembershipReceiverDispatchSubmit: (function (inputData) {
-			window.TestOLSKMembershipReceiverDispatchSubmit.innerHTML = parseInt(window.TestOLSKMembershipReceiverDispatchSubmit.innerHTML) + 1;
-			window.TestOLSKMembershipReceiverDispatchSubmitData.innerHTML = JSON.stringify(inputData);
+		OLSKMembershipReceiverDispatchGrant: (function (inputData) {
+			window.TestOLSKMembershipReceiverDispatchGrant.innerHTML = parseInt(window.TestOLSKMembershipReceiverDispatchGrant.innerHTML) + 1;
+			window.TestOLSKMembershipReceiverDispatchGrantData.innerHTML = JSON.stringify(inputData);
 		}),
 	}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()))),
 });

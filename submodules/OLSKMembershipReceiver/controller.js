@@ -24,7 +24,7 @@ const mod = {
 			OLSKRouteSignature: 'OLSKMembershipReceiverMatchErrorStubRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.json({
-					OLSK_FUND_GRANT_V1: Math.random().toString(),
+					OLSK_FUND_GRANT_V1: 'OLSK_FUND_GRANT_V1',
 				});
 			},
 		}];

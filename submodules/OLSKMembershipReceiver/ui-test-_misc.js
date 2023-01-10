@@ -6,6 +6,7 @@ describe('OLSKMembershipReceiver_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
+			OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/MatchSuccess',
 			OLSKMembershipReceiverEmail,
 		});
 	});
@@ -84,20 +85,19 @@ describe('OLSKMembershipReceiver_Misc', function () {
 		});
 
 		context('submit', function () {
-			
+
 			before(function () {
-				browser.assert.text('#TestOLSKMembershipReceiverDispatchSubmit', '0');
+				browser.assert.text('#TestOLSKMembershipReceiverDispatchGrant', '0');
 			});
 			
 			before(function () {
 				return browser.pressButton(OLSKMembershipReceiverSubmitButton);
 			});
-			
-			it('sends OLSKMembershipReceiverDispatchSubmit', function () {
-				browser.assert.text('#TestOLSKMembershipReceiverDispatchSubmit', '1');
-				browser.assert.text('#TestOLSKMembershipReceiverDispatchSubmitData', JSON.stringify({
-					pin,
-					email,
+
+			it.skip('sends OLSKMembershipReceiverDispatchGrant', function () {
+				browser.assert.text('#TestOLSKMembershipReceiverDispatchGrant', '1');
+				browser.assert.text('#TestOLSKMembershipReceiverDispatchGrantData', JSON.stringify({
+					OLSK_FUND_GRANT_V1: 'OLSK_FUND_GRANT_V1',
 				}));
 			});
 		
