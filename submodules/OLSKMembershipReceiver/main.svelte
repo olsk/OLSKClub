@@ -40,7 +40,7 @@ const mod = {
 
 <form class="OLSKMembershipReceiver OLSKDecorBigForm" on:submit={ mod.InterfaceFormDidSubmit }>
 
-<strong class="OLSKMembershipReceiverHeading">{@html OLSKFormatted(OLSKLocalized('OLSKMembershipReceiverHeadingText'), OLSKMembershipReceiverPage) }</strong>
+<p class="OLSKMembershipReceiverHeading">{@html OLSKFormatted(OLSKLocalized('OLSKMembershipReceiverHeadingText'), OLSKMembershipReceiverPage) }</p>
 
 <p>
 	<input class="OLSKMembershipReceiverCodeField" placeholder="X-X-X-X-X" type="text" bind:value={ mod._ValueCode } required />
