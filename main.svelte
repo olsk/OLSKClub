@@ -1,14 +1,26 @@
 <script>
+export let OLSKMembershipReceiverPage;
+export let OLSKMembershipReceiverEmail;
+
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
 
-const mod = {};
+const mod = {
+
+	OLSKMembershipReceiverDispatchSubmit () {
+		
+	},
+
+};
 
 import OLSKModalView from 'OLSKModalView';
+import OLSKMembershipReceiver from './submodules/OLSKMembershipReceiver/main.svelte';
 </script>
 
 <OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKMembershipHeadingText') } bind:this={ mod._OLSKModalView } OLSKModalViewIsCapped={ true }>
-	<div class="OLSKMembership"></div>
+	<div class="OLSKMembership">
+		<OLSKMembershipReceiver OLSKMembershipReceiverPage={ OLSKMembershipReceiverPage } OLSKMembershipReceiverEmail={ OLSKMembershipReceiverEmail } OLSKMembershipReceiverDispatchSubmit={ mod.OLSKMembershipReceiverDispatchSubmit } />
+	</div>
 </OLSKModalView>
 
 {#if OLSK_SPEC_UI() }

@@ -20,4 +20,8 @@ describe('OLSKMembership_Access', function () {
 		browser.assert.elements(OLSKMembership, 1);
 	});
 
+	it('shows OLSKMembershipReceiver', function () {
+		browser.assert.elements('.OLSKMembershipReceiver', 1);
+	});
+
 });
