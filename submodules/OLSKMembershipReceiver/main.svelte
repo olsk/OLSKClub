@@ -3,6 +3,7 @@ export let OLSKMembershipReceiverPage;
 export let OLSKMembershipReceiverEmail;
 export let OLSKMembershipReceiverDispatchSubmit;
 export let DEBUG_OLSKMembershipReceiverPIN = '';
+export let DEBUG_OLSKMembershipReceiverError = '';
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSKFormatted } from 'OLSKString';
@@ -14,6 +15,7 @@ const mod = {
 
 	_ValueCode: DEBUG_OLSKMembershipReceiverPIN || '',
 	_ValueEmail: OLSKMembershipReceiverEmail,
+	_ValueError: DEBUG_OLSKMembershipReceiverError,
 
 	// DATA
 

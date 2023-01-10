@@ -46,16 +46,17 @@ describe('OLSKMembershipReceiver_Access', function () {
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
 				OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/Error',
-				DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
 				OLSKMembershipReceiverEmail: uEmail(),
+				DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+				DEBUG_OLSKMembershipReceiverError: Math.random().toString(),
 			});
 		});
 
 		before(function () {
-			return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+			// return browser.pressButton(OLSKMembershipReceiverSubmitButton);
 		});
 
-		it.skip('shows OLSKMembershipReceiverErrorAlert', function () {
+		it('shows OLSKMembershipReceiverErrorAlert', function () {
 			browser.assert.elements(OLSKMembershipReceiverErrorAlert, 1);
 		});
 

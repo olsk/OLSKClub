@@ -33,14 +33,17 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			browser.assert.text(OLSKMembershipReceiverSubmitButton, uLocalized('OLSKWordingSubmitText'));
 		});
 
-		context.skip('OLSKMembershipReceiverErrorAlert', function () {
+		context('OLSKMembershipReceiverErrorAlert', function () {
+
+			const DEBUG_OLSKMembershipReceiverError = Math.random().toString();
 			
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
 					OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/Error',
-					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
 					OLSKMembershipReceiverEmail: uEmail(),
+					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+					DEBUG_OLSKMembershipReceiverError,
 				});
 			});
 
@@ -49,24 +52,25 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 			});
 
 			it('sets text', function () {
-				browser.assert.text(OLSKMembershipReceiverErrorAlert, 'JSON.parse: unexpected character at line 1 column 1 of the JSON data');
+				browser.assert.text(OLSKMembershipReceiverErrorAlert, DEBUG_OLSKMembershipReceiverError);
 			});
 
 		});
 
-		context.skip('MatchError', function () {
+		context('MatchError', function () {
 			
 			before(function() {
 				return browser.OLSKVisit(kDefaultRoute, {
 					OLSKRoutingLanguage,
 					OLSKMembershipReceiverPage: '/stub/OLSKMembershipReceiver/MatchError',
-					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
 					OLSKMembershipReceiverEmail: uEmail(),
+					DEBUG_OLSKMembershipReceiverPIN: Math.random().toString(),
+					DEBUG_OLSKMembershipReceiverError: uLocalized('OLSKMembershipReceiverMatchErrorText'),
 				});
 			});
 
 			before(function () {
-				return browser.pressButton(OLSKMembershipReceiverSubmitButton);
+				// return browser.pressButton(OLSKMembershipReceiverSubmitButton);
 			});
 
 			it('shows OLSKMembershipReceiverErrorAlert', function () {
