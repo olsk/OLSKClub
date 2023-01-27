@@ -1,5 +1,5 @@
 {
-  "name": "OLSKMembership",
+  "name": "OLSKClub",
   "main": "main.svelte",
   "dependencies": {
     "OLSKWording": "olsk/OLSKWording",

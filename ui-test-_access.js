@@ -1,12 +1,12 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().shift();
 
 Object.entries({
-	OLSKMembership: '.OLSKModalView .OLSKMembership',
+	OLSKClub: '.OLSKModalView .OLSKClub',
 }).map(function (e) {
 	return global[e.shift()] = e.pop();
 });
 
-describe('OLSKMembership_Access', function () {
+describe('OLSKClub_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
@@ -16,12 +16,12 @@ describe('OLSKMembership_Access', function () {
 		return browser.pressButton('#TestDebugOpenButton');
 	});
 
-	it('shows OLSKMembership', function () {
-		browser.assert.elements(OLSKMembership, 1);
+	it('shows OLSKClub', function () {
+		browser.assert.elements(OLSKClub, 1);
 	});
 
-	it('shows OLSKMembershipReceiver', function () {
-		browser.assert.elements('.OLSKMembershipReceiver', 1);
+	it('shows OLSKClubReceiver', function () {
+		browser.assert.elements('.OLSKClubReceiver', 1);
 	});
 
 });

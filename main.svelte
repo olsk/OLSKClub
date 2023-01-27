@@ -1,25 +1,25 @@
 <script>
-export let OLSKMembershipReceiverPage;
-export let OLSKMembershipReceiverEmail;
+export let OLSKClubReceiverPage;
+export let OLSKClubReceiverEmail;
 
 import { OLSKLocalized } from 'OLSKInternational';
 import { OLSK_SPEC_UI } from 'OLSKSpec';
 
 const mod = {
 
-	OLSKMembershipReceiverDispatchGrant () {
+	OLSKClubReceiverDispatchGrant () {
 		
 	},
 
 };
 
 import OLSKModalView from 'OLSKModalView';
-import OLSKMembershipReceiver from './submodules/OLSKMembershipReceiver/main.svelte';
+import OLSKClubReceiver from './submodules/OLSKClubReceiver/main.svelte';
 </script>
 
-<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKMembershipHeadingText') } bind:this={ mod._OLSKModalView } OLSKModalViewIsCapped={ true }>
-	<div class="OLSKMembership">
-		<OLSKMembershipReceiver OLSKMembershipReceiverPage={ OLSKMembershipReceiverPage } OLSKMembershipReceiverEmail={ OLSKMembershipReceiverEmail } OLSKMembershipReceiverDispatchGrant={ mod.OLSKMembershipReceiverDispatchGrant } />
+<OLSKModalView OLSKModalViewTitleText={ OLSKLocalized('OLSKClubHeadingText') } bind:this={ mod._OLSKModalView } OLSKModalViewIsCapped={ true }>
+	<div class="OLSKClub">
+		<OLSKClubReceiver OLSKClubReceiverPage={ OLSKClubReceiverPage } OLSKClubReceiverEmail={ OLSKClubReceiverEmail } OLSKClubReceiverDispatchGrant={ mod.OLSKClubReceiverDispatchGrant } />
 	</div>
 </OLSKModalView>
 

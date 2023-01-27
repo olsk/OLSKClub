@@ -1,0 +1,3 @@
+OLSKClubReceiverHeadingText: "Enter the code from your <a href='%@' target='_blank'>membership page</a>:"
+OLSKClubReceiverMatchErrorText: Membership not found, maybe try again?
+OLSKClubReceiverMatchSuccessText: Found your membership, all good!

@@ -1,0 +1,3 @@
+OLSKClubReceiverHeadingText: "Introduzca el código de tu <a href='%@' target='_blank'>página de afiliación</a>:"
+OLSKClubReceiverMatchErrorText: Afiliación no encontrado, talvez ¿tenta de nuevo?
+OLSKClubReceiverMatchSuccessText: Afiliación encontrado, ¡todo bien!

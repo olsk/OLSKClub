@@ -1,0 +1,3 @@
+OLSKClubReceiverHeadingText: "Entre le code trouvé dans ton <a href='%@' target='_blank'>page d'adhésion</a>:"
+OLSKClubReceiverMatchErrorText: Aucune adhésion trouvée, peut-être essaye de nouveau?
+OLSKClubReceiverMatchSuccessText: Adhésion trouvée, tout va bien!

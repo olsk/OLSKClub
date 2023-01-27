@@ -4,7 +4,7 @@ const mod = {
 		return [{
 			OLSKRoutePath: '/',
 			OLSKRouteMethod: 'get',
-			OLSKRouteSignature: 'OLSKMembershipStubRoute',
+			OLSKRouteSignature: 'OLSKClubStubRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'stub-view'));
 			},

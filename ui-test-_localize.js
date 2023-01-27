@@ -6,7 +6,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 	};
 
-	describe('OLSKMembership_Localize-' + OLSKRoutingLanguage, function () {
+	describe('OLSKClub_Localize-' + OLSKRoutingLanguage, function () {
 
 		before(function() {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -19,7 +19,7 @@ kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 		});
 	
 		it('localizes OLSKModalViewTitle', function() {
-			browser.assert.text('.OLSKModalViewTitle', uLocalized('OLSKMembershipHeadingText'));
+			browser.assert.text('.OLSKModalViewTitle', uLocalized('OLSKClubHeadingText'));
 		});
 
 	});

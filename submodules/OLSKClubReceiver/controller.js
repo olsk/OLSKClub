@@ -2,26 +2,26 @@ const mod = {
 
 	OLSKControllerRoutes  () {
 		return [{
-			OLSKRoutePath: '/stub/OLSKMembershipReceiver',
+			OLSKRoutePath: '/stub/OLSKClubReceiver',
 			OLSKRouteMethod: 'get',
-			OLSKRouteSignature: 'OLSKMembershipReceiverStubRoute',
+			OLSKRouteSignature: 'OLSKClubReceiverStubRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKExpressLayoutRender(require('path').join(__dirname, 'stub-view'));
 			},
 			OLSKRouteLanguageCodes: ['en', 'fr', 'es', 'pt'],
 		}, {
-			OLSKRoutePath: '/stub/OLSKMembershipReceiver/MatchError',
+			OLSKRoutePath: '/stub/OLSKClubReceiver/MatchError',
 			OLSKRouteMethod: 'post',
-			OLSKRouteSignature: 'OLSKMembershipReceiverMatchErrorStubRoute',
+			OLSKRouteSignature: 'OLSKClubReceiverMatchErrorStubRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.json({
 					error: 'RCAErrorNoMatch',
 				});
 			},
 		}, {
-			OLSKRoutePath: '/stub/OLSKMembershipReceiver/MatchSuccess',
+			OLSKRoutePath: '/stub/OLSKClubReceiver/MatchSuccess',
 			OLSKRouteMethod: 'post',
-			OLSKRouteSignature: 'OLSKMembershipReceiverMatchErrorStubRoute',
+			OLSKRouteSignature: 'OLSKClubReceiverMatchErrorStubRoute',
 			OLSKRouteFunction (req, res, next) {
 				return res.json({
 					OLSK_FUND_GRANT_V1: 'OLSK_FUND_GRANT_V1',
