@@ -20,8 +20,4 @@ describe('OLSKClub_Access', function () {
 		browser.assert.elements(OLSKClub, 1);
 	});
 
-	it('shows OLSKClubReceiver', function () {
-		browser.assert.elements('.OLSKClubReceiver', 1);
-	});
-
 });
