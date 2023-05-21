@@ -1,0 +1,107 @@
+const kDefaultRoute = 'file://' + __dirname + '/stub-view.html';
+
+describe('OLSKClub_Misc', () => {
+
+	const tier = uTier();
+
+	before(() => browser.OLSKVisit(kDefaultRoute, {
+		tiers: JSON.stringify([tier]),
+	}));
+
+	describe('OLSKClub', () => {
+
+		it('classes OLSKDecor', () => browser.assert.hasClass(OLSKClub, 'OLSKDecor'));
+
+		it('sets lang', () => browser.assert.attribute(OLSKClub, 'lang', 'en'));
+
+	});
+
+	describe('tiersHeading', () => {
+
+		it('sets text', () => browser.assert.text(tiersHeading, 'Tiers'));
+
+	});
+
+	describe('tierName', () => {
+
+		it('binds name', () => browser.assert.text(tierName, tier.name));
+
+	});
+
+	describe('tierMonthly', () => {
+
+		it('binds monthly.price', () => browser.assert.text(tierMonthly, tier.monthly.price));
+
+	});
+
+	describe('tierYearly', () => {
+
+		it('binds yearly.price', () => browser.assert.text(tierYearly, tier.yearly.price));
+
+	});
+
+	context('choose monthly', function () {
+
+		before(() => browser.pressButton(tierMonthly));
+		
+		describe('choiceHeading', () => {
+
+			it('sets text', () => browser.assert.text(choiceHeading, 'Summary'));
+
+		});
+
+		describe('choiceName', () => {
+
+			it('binds tier.name', () => browser.assert.text(choiceName, tier.name));
+
+		});
+
+		describe('choicePrice', () => {
+
+			it('binds tier.price', () => browser.assert.text(choicePrice, tier.monthly.price));
+
+		});
+
+		describe('gateway', () => {
+
+			it('classes OLSKDecorPress', () => browser.assert.hasClass(gateway + ':first-of-type', 'OLSKDecorPress'));
+
+			it('classes OLSKDecorPressCall', () => browser.assert.hasClass(gateway + ':first-of-type', 'OLSKDecorPressCall'));
+
+			it('classes OLSKDecorPressCallInverted', () => browser.assert.hasClass(gateway + ':first-of-type', 'OLSKDecorPressCallInverted'));
+
+			it('sets href', () => browser.assert.attribute(gateway + ':first-of-type', 'href', tier.monthly.links[0].url));
+
+			it('sets text', () => browser.assert.text(gateway + ':first-of-type', tier.monthly.links[0].name));
+
+		});
+	
+	});
+
+	context('choose yearly', function () {
+
+		before(() => browser.pressButton(tierYearly));
+		
+		describe('choiceName', () => {
+
+			it('binds tier.name', () => browser.assert.text(choiceName, tier.name));
+
+		});
+
+		describe('choicePrice', () => {
+
+			it('binds tier.price', () => browser.assert.text(choicePrice, tier.yearly.price));
+
+		});
+
+		describe('gateway', () => {
+
+			it('sets href', () => browser.assert.attribute(gateway + ':last-of-type', 'href', tier.yearly.links[1].url));
+
+			it('sets text', () => browser.assert.text(gateway + ':last-of-type', tier.yearly.links[1].name));
+
+		});
+	
+	});
+
+});

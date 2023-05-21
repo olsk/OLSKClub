@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>OLSKClub</title>
+<meta charset="utf-8" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.css">
+<link rel="stylesheet" type="text/css" href="https://olsk.rosano.ca/OLSKDecor/master/ui-style.css">
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+<script src="./main.js"></script>
+<link rel="stylesheet" type="text/css" href="./ui-micromodal.css" />
+<link rel="stylesheet" type="text/css" href="./ui-style.css" />
+</head>
+<body>
+
+<div id="TestParent"></div>
+
+<script type="text/javascript">
+OLSKClub.OLSKClubLoad(Object.assign({
+	parent: window.TestParent,
+}, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(e => ['tiers'].includes(e[0]) ? [e[0], JSON.parse(e[1])] : e))));
+</script>
+
+</body>
+</html>
