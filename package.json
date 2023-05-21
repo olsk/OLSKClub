@@ -1,13 +1,4 @@
 {
   "name": "OLSKClub",
-  "main": "main.svelte",
-  "dependencies": {
-    "OLSKWording": "olsk/OLSKWording",
-    "OLSKModalView": "olsk/OLSKModalView",
-    "OLSKLink": "olsk/OLSKLink"
-  },
-  "devDependencies": {
-    "normalize.css": "latest",
-    "OLSKDecor": "olsk/OLSKDecor"
-  }
+  "main": "main.js"
 }
