@@ -186,7 +186,7 @@
 
 			MicroModal.show('modal-1');
 
-			document.querySelector('.modal__container').onclick = (event) => event.stopPropagation();
+			document.querySelector('.modal__container').onclick = (event) => event.target !== document.querySelector('.modal__close') ? event.stopPropagation() : '';
 		},
 
 	};
