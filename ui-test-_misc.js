@@ -46,12 +46,6 @@ describe('OLSKClub_Misc', () => {
 
 		before(() => browser.click(tierMonthly));
 		
-		describe('choiceHeading', () => {
-
-			it('sets text', () => browser.assert.text(choiceHeading, 'Summary'));
-
-		});
-
 		describe('choiceName', () => {
 
 			it('binds tier.name', () => browser.assert.text(choiceName, tier.name));

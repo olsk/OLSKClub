@@ -11,7 +11,6 @@ Object.entries({
 	tierYearly: '.tierYearly',
 	
 	choice: 'choice',
-	choiceHeading: '.choiceHeading',
 	choiceName: '.choiceName',
 	choicePrice: '.choicePrice',
 	
@@ -52,8 +51,6 @@ describe('OLSKClub_Access', () => {
 		const uTest = () => {
 			
 			it('shows choice', () => browser.assert.elements(choice, 1));
-			
-			it('shows choiceHeading', () => browser.assert.elements(choiceHeading, 1));
 			
 			it('shows choiceName', () => browser.assert.elements(choiceName, 1));
 			

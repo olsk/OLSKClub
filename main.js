@@ -129,9 +129,10 @@
 			console.log(mod._valConfig.tiers[index][plan].links);
 
 			const choice = document.createElement('choice');
-			choice.innerHTML = `<h2 class="choiceHeading">Summary</h2>
-			<span class="choiceName">${ mod._valConfig.tiers[index].name }</span>
-			<span class="choicePrice">${ mod._valConfig.tiers[index][plan].price }</span>
+			choice.innerHTML = `<hr /><h2>
+				<span class="choiceName">${ mod._valConfig.tiers[index].name }</span>
+				<span class="choicePrice">${ mod._valConfig.tiers[index][plan].price }</span>
+			</h2>
 			${ mod._valConfig.tiers[index][plan].links.map(e => `<a class="gateway OLSKDecorPress OLSKDecorPressCall OLSKDecorPressCallInverted" href="${ e.url }">${ e.name }</a>`).join('\n') }`;
 			document.querySelector('.OLSKClub').appendChild(choice);
 		},
