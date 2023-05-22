@@ -14,6 +14,7 @@ Object.entries({
 	choice: 'choice',
 	choiceName: '.choiceName',
 	choicePrice: '.choicePrice',
+	choiceEdit: '.choiceEdit',
 	
 	gateway: '.gateway',
 }).map(function (e) {
@@ -51,25 +52,25 @@ describe('OLSKClub_Access', () => {
 
 		before(() => browser.click(tier + ':nth-of-type(1) ' + tiers[monthlyFirst ? 0 : 1]));
 
-		const uTest = () => {
+		it('hides tier', () => browser.assert.elements(tier, 0));
+		
+		it('shows choice', () => browser.assert.elements(choice, 1));
+		
+		it('shows choiceName', () => browser.assert.elements(choiceName, 1));
+		
+		it('shows choicePrice', () => browser.assert.elements(choicePrice, 1));
+		
+		it('shows choiceEdit', () => browser.assert.elements(choiceEdit, 1));
+
+		it('shows gateway', () => browser.assert.elements(gateway, 2));
+
+		context('edit', () => {
+
+			before(() => browser.click(choiceEdit));
+
+			it('shows tier', () => browser.assert.elements(tier, tiersCount));
 			
-			it('shows choice', () => browser.assert.elements(choice, 1));
-			
-			it('shows choiceName', () => browser.assert.elements(choiceName, 1));
-			
-			it('shows choicePrice', () => browser.assert.elements(choicePrice, 1));
-
-			it('shows gateway', () => browser.assert.elements(gateway, 2));
-			
-		};
-
-		uTest();
-
-		context('choose again', () => {
-
-			before(() => browser.click(tier + ':nth-of-type(1) ' + tiers[monthlyFirst ? 1 : 0]));
-
-			uTest();
+			it('hides choice', () => browser.assert.elements(choice, 0));
 		
 		});
 	

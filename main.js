@@ -126,15 +126,24 @@
 				previous.remove();
 			}
 
-			console.log(mod._valConfig.tiers[index][plan].links);
-
 			const choice = document.createElement('choice');
-			choice.innerHTML = `<hr /><h2>
+			choice.innerHTML = `<h2>
 				<span class="choiceName">${ mod._valConfig.tiers[index].name }</span>
 				<span class="choicePrice">${ mod._valConfig.tiers[index][plan].price }</span>
+				<button class="choiceEdit">Change</button>
 			</h2>
 			${ mod._valConfig.tiers[index][plan].links.map(e => `<a class="gateway OLSKDecorPress OLSKDecorPressCall OLSKDecorPressCallInverted" href="${ e.url }">${ e.name }</a>`).join('\n') }`;
 			document.querySelector('.OLSKClub').appendChild(choice);
+
+			const tiers = [...document.querySelectorAll('.OLSKClub tiers .tier')]
+
+			tiers.forEach(e => e.remove());
+			
+			document.querySelector('.OLSKClub .choiceEdit').onclick = function () {
+				document.querySelector('.OLSKClub choice').remove();
+
+				tiers.forEach(e => document.querySelector('.OLSKClub tiers').appendChild(e));
+			};
 		},
 
 		// SETUP
@@ -146,6 +155,7 @@
 			
 			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en">
 			<h2 class="clubHeading">${ config.name }</h2>
+			<tiers>
 			${ config.tiers.map((e, i) => `<div class="tier">
 					<h3 class="tierName">${ e.name }</h3>
 					${ e.description ? `<div class="tierBlurb">${ e.description }</div>` : '' }
@@ -154,6 +164,7 @@
 						<button class="tierYearly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'yearly')">${ e.yearly.price }</button>
 					</p>
 				</div>`).join('\n') }
+			</tiers>
 			</div>`;
 
 			if (!config.modal) {

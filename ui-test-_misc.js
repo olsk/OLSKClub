@@ -48,7 +48,9 @@ describe('OLSKClub_Misc', () => {
 
 	context('choose monthly', function () {
 
-		before(() => browser.click(tierMonthly));
+		const tierPlan = uRandomElement('monthly', 'yearly');
+
+		before(() => browser.click(tierPlan === 'monthly' ? tierMonthly : tierYearly));
 		
 		describe('choiceName', () => {
 
@@ -58,7 +60,13 @@ describe('OLSKClub_Misc', () => {
 
 		describe('choicePrice', () => {
 
-			it('binds tier.price', () => browser.assert.text(choicePrice, tier.monthly.price));
+			it('binds tier.price', () => browser.assert.text(choicePrice, tier[tierPlan].price));
+
+		});
+
+		describe('choiceEdit', () => {
+
+			it('sets text', () => browser.assert.text(choiceEdit, 'Change'));
 
 		});
 
@@ -70,35 +78,9 @@ describe('OLSKClub_Misc', () => {
 
 			it('classes OLSKDecorPressCallInverted', () => browser.assert.hasClass(gateway + ':first-of-type', 'OLSKDecorPressCallInverted'));
 
-			it('sets href', () => browser.assert.attribute(gateway + ':first-of-type', 'href', tier.monthly.links[0].url));
+			it('sets href', () => browser.assert.attribute(gateway + ':first-of-type', 'href', tier[tierPlan].links[0].url));
 
-			it('sets text', () => browser.assert.text(gateway + ':first-of-type', tier.monthly.links[0].name));
-
-		});
-	
-	});
-
-	context('choose yearly', function () {
-
-		before(() => browser.click(tierYearly));
-		
-		describe('choiceName', () => {
-
-			it('binds tier.name', () => browser.assert.text(choiceName, tier.name));
-
-		});
-
-		describe('choicePrice', () => {
-
-			it('binds tier.price', () => browser.assert.text(choicePrice, tier.yearly.price));
-
-		});
-
-		describe('gateway', () => {
-
-			it('sets href', () => browser.assert.attribute(gateway + ':last-of-type', 'href', tier.yearly.links[1].url));
-
-			it('sets text', () => browser.assert.text(gateway + ':last-of-type', tier.yearly.links[1].name));
+			it('sets text', () => browser.assert.text(gateway + ':first-of-type', tier[tierPlan].links[0].name));
 
 		});
 	
