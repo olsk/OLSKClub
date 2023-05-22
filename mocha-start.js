@@ -4,6 +4,7 @@
 		uConfig (inputData = {}) {
 			return Object.assign({
 				parent: {},
+				name: Math.random().toString(),
 			}, inputData);
 		},
 

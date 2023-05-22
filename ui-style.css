@@ -2,6 +2,10 @@
   /*min-width: 240px;*/ 
 }
 
+.OLSKClub .clubHeading {
+  display: none;
+}
+
 @media screen and (max-width: 760px) {
 
   .modal__container {

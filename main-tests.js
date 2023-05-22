@@ -16,6 +16,12 @@ describe('validateConfig', function test_validateConfig() {
 		})), false);
 	});
 
+	it('returns false if name not string', function () {
+		deepEqual(mod.validateConfig(uConfig({
+			name: null,
+		})), false);
+	});
+
 	it('returns true', function () {
 		deepEqual(mod.validateConfig(uConfig()), true);
 	});

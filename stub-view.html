@@ -20,6 +20,7 @@
 <script type="text/javascript">
 OLSKClub.OLSKClubLoad(Object.assign({
 	parent: window.TestParent,
+	name: Math.random().toString(),
 }, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(e => ['tiers'].includes(e[0]) ? [e[0], JSON.parse(e[1])] : e))));
 </script>
 

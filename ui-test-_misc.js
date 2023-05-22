@@ -2,9 +2,11 @@ const kDefaultRoute = 'file://' + __dirname + '/stub-view.html';
 
 describe('OLSKClub_Misc', () => {
 
+	const name = Math.random().toString();
 	const tier = uTier();
 
 	before(() => browser.OLSKVisit(kDefaultRoute, {
+		name,
 		tiers: JSON.stringify([tier]),
 	}));
 
@@ -16,9 +18,9 @@ describe('OLSKClub_Misc', () => {
 
 	});
 
-	describe('tiersHeading', () => {
+	describe('clubHeading', () => {
 
-		it('sets text', () => browser.assert.text(tiersHeading, 'Tiers'));
+		it('binds name', () => browser.assert.text(clubHeading, name));
 
 	});
 
@@ -42,7 +44,7 @@ describe('OLSKClub_Misc', () => {
 
 	context('choose monthly', function () {
 
-		before(() => browser.pressButton(tierMonthly));
+		before(() => browser.click(tierMonthly));
 		
 		describe('choiceHeading', () => {
 
@@ -80,7 +82,7 @@ describe('OLSKClub_Misc', () => {
 
 	context('choose yearly', function () {
 
-		before(() => browser.pressButton(tierYearly));
+		before(() => browser.click(tierYearly));
 		
 		describe('choiceName', () => {
 

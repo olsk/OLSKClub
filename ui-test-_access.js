@@ -3,7 +3,7 @@ const kDefaultRoute = 'file://' + __dirname + '/stub-view.html';
 Object.entries({
 	OLSKClub: '.OLSKClub',
 
-	tiersHeading: '.tiersHeading',
+	clubHeading: '.clubHeading',
 
 	tier: '.tier',
 	tierName: '.tierName',
@@ -30,7 +30,7 @@ describe('OLSKClub_Access', () => {
 
 	it('shows OLSKClub', () => browser.assert.elements(OLSKClub, 1));
 
-	it('shows tiersHeading', () => browser.assert.elements(tiersHeading, 1));
+	it('shows clubHeading', () => browser.assert.elements(clubHeading, 1));
 
 	it('shows tier', () => browser.assert.elements(tier, tiersCount));
 
@@ -47,7 +47,7 @@ describe('OLSKClub_Access', () => {
 		const tiers = [tierMonthly, tierYearly];
 		const monthlyFirst = uRandomElement(true, false);
 
-		before(() => browser.pressButton(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 0 : 1]));
+		before(() => browser.click(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 0 : 1]));
 
 		const uTest = () => {
 			
@@ -67,7 +67,7 @@ describe('OLSKClub_Access', () => {
 
 		context('choose again', () => {
 
-			before(() => browser.pressButton(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 1 : 0]));
+			before(() => browser.click(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 1 : 0]));
 
 			uTest();
 		

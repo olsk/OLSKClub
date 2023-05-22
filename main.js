@@ -15,6 +15,10 @@
 				return false
 			}
 
+			if (typeof config.name !== 'string') {
+				return false;
+			}
+
 			if (config.tiers !== undefined) {
 				if (!Array.isArray(config.tiers)) {
 					throw new Error('OLSKErrorInputNotValid');
@@ -139,7 +143,9 @@
 
 			mod._valConfig = config;
 			
-			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en"><table>${
+			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en">
+			<h2 class="clubHeading">${ config.name }</h2>
+			<table>${
 				config.tiers.map((e, i) => `<tr class="tier">
 					<td class="tierName">${ e.name }</td>
 					<td><button class="tierMonthly" onclick="OLSKClub.goChoose(${ i }, 'monthly')">${ e.monthly.price }</button></td>
@@ -156,7 +162,7 @@
 				<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
 			
 					<header class="modal__header">
-						<h2 class="modal__title" id="modal-1-title">Strolling</h2>
+						<h2 class="modal__title clubHeading" id="modal-1-title">${ config.name }</h2>
 						<button class="modal__close" aria-label="Close modal" data-micromodal-close=""></button>
 					</header>
 					<div class="modal__content" id="modal-1-content">${ config.parent.innerHTML }</div>
