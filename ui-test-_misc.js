@@ -32,10 +32,14 @@ describe('OLSKClub_Misc', () => {
 
 	describe('tierMonthly', () => {
 
+		it('classes OLSKDecorTappable', () => browser.assert.hasClass(tierMonthly, 'OLSKDecorTappable'));
+
+		it('classes OLSKDecorButtonNoStyle', () => browser.assert.hasClass(tierMonthly, 'OLSKDecorButtonNoStyle'));
+
 		it('binds monthly.price', () => browser.assert.text(tierMonthly, tier.monthly.price));
 
 	});
-
+		
 	describe('tierYearly', () => {
 
 		it('binds yearly.price', () => browser.assert.text(tierYearly, tier.yearly.price));

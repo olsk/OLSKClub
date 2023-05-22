@@ -149,8 +149,8 @@
 			<table>${
 				config.tiers.map((e, i) => `<tr class="tier">
 					<td class="tierName">${ e.name }</td>
-					<td><button class="tierMonthly" onclick="OLSKClub.goChoose(${ i }, 'monthly')">${ e.monthly.price }</button></td>
-					<td><button class="tierYearly" onclick="OLSKClub.goChoose(${ i }, 'yearly')">${ e.yearly.price }</button></td>
+					<td><button class="tierMonthly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'monthly')">${ e.monthly.price }</button></td>
+					<td><button class="tierYearly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'yearly')">${ e.yearly.price }</button></td>
 				</tr>`).join('\n')
 			}</table></div>`;
 
