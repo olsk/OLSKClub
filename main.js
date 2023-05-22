@@ -146,13 +146,15 @@
 			
 			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en">
 			<h2 class="clubHeading">${ config.name }</h2>
-			<table>${
-				config.tiers.map((e, i) => `<tr class="tier">
-					<td class="tierName">${ e.name }</td>
-					<td><button class="tierMonthly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'monthly')">${ e.monthly.price }</button></td>
-					<td><button class="tierYearly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'yearly')">${ e.yearly.price }</button></td>
-				</tr>`).join('\n')
-			}</table></div>`;
+			${ config.tiers.map((e, i) => `<div class="tier">
+					<h3 class="tierName">${ e.name }</h3>
+					${ e.description ? `<div class="tierBlurb">${ e.description }</div>` : '' }
+					<p>
+						<button class="tierMonthly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'monthly')">${ e.monthly.price }</button>
+						<button class="tierYearly OLSKDecorTappable OLSKDecorButtonNoStyle" onclick="OLSKClub.goChoose(${ i }, 'yearly')">${ e.yearly.price }</button>
+					</p>
+				</div>`).join('\n') }
+			</div>`;
 
 			if (!config.modal) {
 				return;

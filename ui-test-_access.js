@@ -7,6 +7,7 @@ Object.entries({
 
 	tier: '.tier',
 	tierName: '.tierName',
+	tierBlurb: '.tierBlurb',
 	tierMonthly: '.tierMonthly',
 	tierYearly: '.tierYearly',
 	
@@ -35,6 +36,8 @@ describe('OLSKClub_Access', () => {
 
 	it('shows tierName', () => browser.assert.elements(tierName, tiersCount));
 
+	it('hides tierBlurb', () => browser.assert.elements(tierBlurb, 0));
+
 	it('shows tierMonthly', () => browser.assert.elements(tierMonthly, tiersCount));
 
 	it('shows tierYearly', () => browser.assert.elements(tierYearly, tiersCount));
@@ -46,7 +49,7 @@ describe('OLSKClub_Access', () => {
 		const tiers = [tierMonthly, tierYearly];
 		const monthlyFirst = uRandomElement(true, false);
 
-		before(() => browser.click(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 0 : 1]));
+		before(() => browser.click(tier + ':nth-of-type(1) ' + tiers[monthlyFirst ? 0 : 1]));
 
 		const uTest = () => {
 			
@@ -64,11 +67,23 @@ describe('OLSKClub_Access', () => {
 
 		context('choose again', () => {
 
-			before(() => browser.click(tier + ':nth-child(1) ' + tiers[monthlyFirst ? 1 : 0]));
+			before(() => browser.click(tier + ':nth-of-type(1) ' + tiers[monthlyFirst ? 1 : 0]));
 
 			uTest();
 		
 		});
+	
+	});
+
+	context('description', () => {
+
+		before(() => browser.OLSKVisit(kDefaultRoute, {
+			tiers: JSON.stringify(Array.from(Array(tiersCount)).map(e => uTier({
+				description: Math.random().toString(),
+			}))),
+		}));
+
+		it('shows tierBlurb', () => browser.assert.elements(tierBlurb, tiersCount));
 	
 	});
 
