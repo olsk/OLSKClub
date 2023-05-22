@@ -127,11 +127,12 @@
 			}
 
 			const choice = document.createElement('choice');
-			choice.innerHTML = `<h2>
-				<span class="choiceName">${ mod._valConfig.tiers[index].name }</span>
+			choice.innerHTML = `
+			<p>
+				<strong class="choiceName">${ mod._valConfig.tiers[index].name }</strong>
 				<span class="choicePrice">${ mod._valConfig.tiers[index][plan].price }</span>
-				<button class="choiceEdit">Change</button>
-			</h2>
+				<small>(<a class="choiceEdit OLSKDecorTappable">Change</a>)</small>
+			</p>
 			${ mod._valConfig.tiers[index][plan].links.map(e => `<a class="gateway OLSKDecorPress OLSKDecorPressCall OLSKDecorPressCallInverted" href="${ e.url }">${ e.name }</a>`).join('\n') }`;
 			document.querySelector('.OLSKClub').appendChild(choice);
 

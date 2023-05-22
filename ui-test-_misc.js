@@ -66,6 +66,8 @@ describe('OLSKClub_Misc', () => {
 
 		describe('choiceEdit', () => {
 
+			it('classes OLSKDecorTappable', () => browser.assert.hasClass(choiceEdit, 'OLSKDecorTappable'));
+
 			it('sets text', () => browser.assert.text(choiceEdit, 'Change'));
 
 		});
