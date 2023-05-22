@@ -1,9 +1,33 @@
-.OLSKClub {
-  /*min-width: 240px;*/ 
+.tier :first-child {
+  margin-top: 0;
+}
+
+.tier :last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 760px) {
+
+  .OLSKClub {
+    min-width: 400px; 
+  }
+
+}
+
+.OLSKDecor {
+  padding: unset;
 }
 
 .OLSKClub .clubHeading {
   display: none;
+}
+
+.tier {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  margin: 10px 0;
 }
 
 .tier button {
