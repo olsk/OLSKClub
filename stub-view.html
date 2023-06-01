@@ -19,14 +19,29 @@
 </head>
 <body>
 
+<p>
+	<a class="STRAccountOutLink OLSKDecorTappable gh-portal-close" data-portal="signin">Sign in to access extended episodes.</a>
+</p>
+
+<p>
+	<a class="STRPromptButton OLSKDecorPress OLSKDecorPressCall OLSKDecorTappable gh-portal-close" data-portal="signup">Subscribe</a>
+</p>
+
+<p>
+	<span class="STRPromptExistingBlurb">Already a member?</span>
+	<a class="STRPromptExistingLink OLSKDecorTappable gh-portal-close" data-portal="signin">Sign in</a>
+	<br>
+</p>
+
 <div id="TestParent"></div>
 
 <script type="text/javascript">
-OLSKClub.setup(Object.assign({
+OLSKClub.register(Object.assign({
 	parent: window.TestParent,
 	name: Math.random().toString(),
 	modal: false,
 }, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(e => ['tiers'].includes(e[0]) ? [e[0], JSON.parse(e[1])] : e))));
+OLSKClub.show();
 </script>
 
 </body>

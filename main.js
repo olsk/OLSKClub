@@ -155,10 +155,23 @@
 
 		// SETUP
 
-		setup (config) {
+		register (config) {
 			mod.validateConfig(config);
 
 			mod._valConfig = config;
+
+			[...document.querySelectorAll('[data-portal="signup"]')].forEach(function (e) {
+				e.onclick = function (event) {
+					event.stopPropagation();
+					event.preventDefault();
+
+					mod.show();
+				};
+			});
+		},
+
+		show () {
+			const config = mod._valConfig;
 
 			const heading = `${ config.icon ? `<img class="clubIcon" src="${ config.icon }" />` : '' }${ config.name }`
 			
