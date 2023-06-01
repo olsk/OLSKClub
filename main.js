@@ -155,7 +155,7 @@
 
 		// SETUP
 
-		setupEverything(config) {
+		setup (config) {
 			mod.validateConfig(config);
 
 			mod._valConfig = config;
@@ -199,11 +199,7 @@
 
 	};
 
-	Object.assign(exports, {
-
-		OLSKClubLoad: mod.setupEverything,
-
-	}, mod);
+	Object.assign(exports, mod);
 
 	Object.defineProperty(exports, '__esModule', {
 		value: true

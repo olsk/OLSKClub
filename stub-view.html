@@ -22,9 +22,10 @@
 <div id="TestParent"></div>
 
 <script type="text/javascript">
-OLSKClub.OLSKClubLoad(Object.assign({
+OLSKClub.setup(Object.assign({
 	parent: window.TestParent,
 	name: Math.random().toString(),
+	modal: false,
 }, Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(e => ['tiers'].includes(e[0]) ? [e[0], JSON.parse(e[1])] : e))));
 </script>
 
