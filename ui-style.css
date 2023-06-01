@@ -33,8 +33,15 @@
 .tier button {
   padding: 10px;
   background: #ddd;
+  background: var(--ghost-accent-color);
+  color:  white;
   font-family: "Helvetica Neue";
   font-weight: bold;
+}
+
+.OLSKDecorPressCallInverted {
+  background: var(--ghost-accent-color) !important;
+
 }
 
 .choiceEdit {
