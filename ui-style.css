@@ -56,7 +56,6 @@
 
 .OLSKDecorPressCallInverted {
   background: var(--ghost-accent-color) !important;
-
 }
 
 .choiceEdit {
@@ -68,8 +67,8 @@
 }
 
 .modal__close {
-  background: none;
-  border: none;
+  background: none !important;
+  border: none !important;
 }
 
 @media screen and (max-width: 760px) {
