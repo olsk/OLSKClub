@@ -4,6 +4,7 @@ Object.entries({
 	OLSKClub: '.OLSKClub',
 
 	clubHeading: '.clubHeading',
+	clubIcon: '.clubIcon',
 
 	tier: '.tier',
 	tierName: '.tierName',
@@ -31,6 +32,8 @@ describe('OLSKClub_Access', () => {
 
 	it('shows OLSKClub', () => browser.assert.elements(OLSKClub, 1));
 
+	it('hides clubIcon', () => browser.assert.elements(clubIcon, 0));
+	
 	it('shows clubHeading', () => browser.assert.elements(clubHeading, 1));
 
 	it('shows tier', () => browser.assert.elements(tier, tiersCount));
@@ -85,6 +88,17 @@ describe('OLSKClub_Access', () => {
 		}));
 
 		it('shows tierBlurb', () => browser.assert.elements(tierBlurb, tiersCount));
+	
+	});
+
+	context('icon', () => {
+
+		before(() => browser.OLSKVisit(kDefaultRoute, {
+			icon: Math.random().toString(),
+			tiers: JSON.stringify([uTier()]),
+		}));
+
+		it('shows clubIcon', () => browser.assert.elements(clubIcon, 1));
 	
 	});
 

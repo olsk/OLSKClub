@@ -26,6 +26,16 @@ describe('validateConfig', function test_validateConfig() {
 		deepEqual(mod.validateConfig(uConfig()), true);
 	});
 
+	context('icon', function () {
+		
+		it('throws if not string', function () {
+			deepEqual(mod.validateConfig(uConfig({
+				icon: null,
+			})), false);
+		});
+		
+	});
+
 	context('tiers', function () {
 		
 		it('throws if not array', function () {

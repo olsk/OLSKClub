@@ -19,6 +19,12 @@
 				return false;
 			}
 
+			if (config.icon !== undefined) {
+				if (typeof config.icon !== 'string') {
+					return false;
+				}
+			}
+
 			if (config.tiers !== undefined) {
 				if (!Array.isArray(config.tiers)) {
 					throw new Error('OLSKErrorInputNotValid');
@@ -154,7 +160,7 @@
 
 			mod._valConfig = config;
 
-			const heading = ${ config.name };
+			const heading = `${ config.icon ? `<img class="clubIcon" src="${ config.icon }" />` : '' }${ config.name }`
 			
 			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en">
 			<h2 class="clubHeading">${ heading }</h2>

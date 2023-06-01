@@ -22,12 +22,27 @@
   display: none;
 }
 
+.clubHeading {
+  display: flex;
+  align-items: center;
+}
+
+.clubIcon {
+  max-width: 42px;
+  margin-right: 10px;
+}
+
 .tier {
   padding: 10px;
   border: 1px solid #eee;
   border-radius: 10px;
 
   margin: 10px 0;
+}
+
+.tierName {
+  font-size: 200%;
+  margin: 0;
 }
 
 .tier button {

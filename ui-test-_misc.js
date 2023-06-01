@@ -3,10 +3,12 @@ const kDefaultRoute = 'file://' + __dirname + '/stub-view.html';
 describe('OLSKClub_Misc', () => {
 
 	const name = Math.random().toString();
+	const icon = Math.random().toString();
 	const tier = uTier();
 
 	before(() => browser.OLSKVisit(kDefaultRoute, {
 		name,
+		icon,
 		tiers: JSON.stringify([tier]),
 	}));
 
@@ -21,6 +23,12 @@ describe('OLSKClub_Misc', () => {
 	describe('clubHeading', () => {
 
 		it('binds name', () => browser.assert.text(clubHeading, name));
+
+	});
+
+	describe('clubIcon', () => {
+
+		it('binds icon', () => browser.assert.attribute(clubIcon, 'src', icon));
 
 	});
 
