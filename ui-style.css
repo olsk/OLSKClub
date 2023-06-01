@@ -31,7 +31,10 @@
 }
 
 .tier button {
+  padding: 10px;
   background: #ddd;
+  font-family: "Helvetica Neue";
+  font-weight: bold;
 }
 
 .choiceEdit {
