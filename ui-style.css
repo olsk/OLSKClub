@@ -35,7 +35,8 @@
 .tier {
   padding: 10px;
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-color: var(--ghost-accent-color);
+  border-radius: 3px;
 
   margin: 10px 0;
 }
