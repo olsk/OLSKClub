@@ -63,6 +63,15 @@
   text-decoration: underline;
 }
 
+.modal__container {
+  background: var(--OLSKCommonBackground);
+}
+
+.modal__close {
+  background: none;
+  border: none;
+}
+
 @media screen and (max-width: 760px) {
 
   .modal__container {
