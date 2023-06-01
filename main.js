@@ -153,9 +153,11 @@
 			mod.validateConfig(config);
 
 			mod._valConfig = config;
+
+			const heading = ${ config.name };
 			
 			config.parent.innerHTML = `<div class="OLSKClub OLSKDecor" lang="en">
-			<h2 class="clubHeading">${ config.name }</h2>
+			<h2 class="clubHeading">${ heading }</h2>
 			<tiers>
 			${ config.tiers.map((e, i) => `<div class="tier">
 					<h3 class="tierName">${ e.name }</h3>
@@ -177,7 +179,7 @@
 				<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
 			
 					<header class="modal__header">
-						<h2 class="modal__title clubHeading" id="modal-1-title">${ config.name }</h2>
+						<h2 class="modal__title clubHeading" id="modal-1-title">${ heading }</h2>
 						<button class="modal__close" aria-label="Close modal" data-micromodal-close=""></button>
 					</header>
 					<div class="modal__content" id="modal-1-content">${ config.parent.innerHTML }</div>
